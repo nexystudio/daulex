@@ -1,2 +1,2 @@
-# daulex
+# Daulex
 Digital technology laboratory.

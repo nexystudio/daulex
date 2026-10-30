@@ -18,23 +18,30 @@
 <script src="/assets/js/main.js" defer></script>
 <script src="/assets/js/text-analyzer.js" defer></script>
 </head>
-<body>
+<body data-themable>
 <div id="site-header"></div>
 <main class="wrap page">
   <a class="back" href="/#herramientas" data-i18n="back">Volver a las herramientas</a>
-  <h1 data-i18n="h1">Analizador de texto</h1>
-  <p class="sub" data-i18n="sub">Escribe o pega un texto y mira sus estadísticas en tiempo real.</p>
-  <div class="ws">
-    <label for="tIn" data-i18n="tin">Escribe o pega tu texto</label>
-    <textarea id="tIn"></textarea>
-    <div class="stats">
-      <div class="stat"><b id="sW">0</b><span data-i18n="sw">Palabras</span></div>
-      <div class="stat"><b id="sC">0</b><span data-i18n="sc">Caracteres</span></div>
-      <div class="stat"><b id="sS">0</b><span data-i18n="ss">Frases</span></div>
-      <div class="stat"><b id="sR">0</b><span data-i18n="sr">Min. de lectura</span></div>
+  <div class="ta">
+    <div class="ta-bar"><button class="ibtn" type="button" id="thm" aria-label="Cambiar tema" data-i18n-al="thm">☾</button></div>
+    <h1 class="ta-h" data-i18n="hd">Analiza tu texto en tiempo real.</h1>
+    <textarea id="tIn" class="ta-area" data-i18n-ph="tin" placeholder="Escribe o pega tu texto"></textarea>
+    <div class="ta-opts">
+      <label class="ck"><input type="checkbox" id="xs"><span data-i18n="xs">Excluir espacios</span></label>
+      <label class="ck"><input type="checkbox" id="lim"><span data-i18n="lim">Establecer límite de caracteres</span></label>
+      <input type="number" id="limN" min="1" value="300" hidden aria-label="Límite">
+      <span class="sp"></span>
+      <span><span data-i18n="rt">Tiempo de lectura aprox.:</span> <b id="rtN">0</b> <span data-i18n="mn">min</span></span>
     </div>
-    <p class="note" data-i18n="tnote">Tiempo estimado a 200 palabras por minuto. Es una aproximación.</p>
-    <div class="actions"><button class="btn ghost" type="button" id="tClr" data-i18n="clear">Limpiar</button></div>
+    <p class="lim-err" id="limMsg" hidden></p>
+    <div class="tcards">
+      <div class="tc c1"><b id="sC">00</b><span data-i18n="sc">Caracteres</span></div>
+      <div class="tc c2"><b id="sW">00</b><span data-i18n="sw">Palabras</span></div>
+      <div class="tc c3"><b id="sS">00</b><span data-i18n="ss">Frases</span></div>
+    </div>
+    <h2 data-i18n="ld">Densidad de letras</h2>
+    <div id="dens"></div>
+    <button class="lnk" type="button" id="more" hidden></button>
   </div>
   <section class="info" style="padding-block:0"><h2 data-i18n="ah">¿Para qué sirve?</h2><p data-i18n="ap">Sirve para revisar la extensión de artículos, descripciones, publicaciones o trabajos. Cuenta palabras, caracteres con espacios y frases, y estima cuánto tarda en leerse el texto. Todo se calcula en tu navegador.</p></section>
 </main>

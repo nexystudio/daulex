@@ -18,16 +18,36 @@
 <script src="/assets/js/main.js" defer></script>
 <script src="/assets/js/color-palette.js" defer></script>
 </head>
-<body>
+<body data-themable>
 <div id="site-header"></div>
-<main class="wrap page">
+<main class="wrap page wide">
   <a class="back" href="/#herramientas" data-i18n="back">Volver a las herramientas</a>
-  <h1 data-i18n="h1">Generador de paletas</h1>
-  <p class="sub" data-i18n="sub">Genera combinaciones de cinco colores y copia cada código HEX.</p>
-  <div class="ws">
-    <div class="pal" id="palGrid"></div>
-    <p class="note" data-i18n="pnote">Haz clic en un color para copiar su código.</p>
-    <div class="actions"><button class="btn" type="button" id="palGen" data-i18n="gen">Generar otra paleta</button></div>
+  <div class="pg-head">
+    <span class="bsw" id="bsw"></span>
+    <h1 data-i18n="h1">Generador de paletas</h1>
+    <span class="hxt" id="hxt"></span>
+    <span class="sp"></span>
+    <label class="tg"><span data-i18n="dm">Modo oscuro</span><input type="checkbox" class="sw2" id="dm"></label>
+    <button class="ibtn" type="button" id="dl" aria-label="Descargar paleta" data-i18n-al="dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg></button>
+  </div>
+  <div class="pg">
+    <div>
+      <section class="pnl">
+        <div class="bchead"><h2 data-i18n="bc">Color base</h2><button class="btn ghost sm" type="button" id="rnd">↻ <span data-i18n="rnd">Aleatorio</span></button><span class="bsw sm" id="bsw2"></span></div>
+        <div class="sv" id="sv"><i class="th" id="th"></i></div>
+        <input type="range" class="hue" id="hu" min="0" max="360" value="214" aria-label="Hue">
+        <div class="hxrow"><span class="bsw sm" id="bsw3"></span><input class="hxin" id="hxIn" maxlength="7" spellcheck="false" autocomplete="off" aria-label="HEX"></div>
+      </section>
+      <div class="sl"><label for="vib"><span data-i18n="vib">Vivacidad</span><b id="vibV">50%</b></label><input type="range" id="vib" min="0" max="100" value="50"></div>
+      <div class="sl"><label for="hs"><span data-i18n="hue">Cambio de tono</span><b id="hsV">0°</b></label><input type="range" id="hs" min="-180" max="180" value="0"></div>
+      <div class="strip" id="strip"></div>
+      <section class="pnl">
+        <div class="achead"><h2 data-i18n="acc">Pares de accesibilidad</h2><span id="pc"></span></div>
+        <h3 class="okh" data-i18n="okc">Combinaciones accesibles</h3><div class="plist" id="okL"></div>
+        <h3 class="badh" data-i18n="bad">Combinaciones no accesibles</h3><div class="plist" id="badL"></div>
+      </section>
+    </div>
+    <div class="shades" id="shades"></div>
   </div>
   <section class="info" style="padding-block:0"><h2 data-i18n="ah">¿Para qué sirve?</h2><p data-i18n="ap">Es útil para buscar ideas de color al diseñar interfaces, páginas web o proyectos gráficos. Cada paleta tiene cinco colores con su código hexadecimal, listos para copiar.</p></section>
 </main>

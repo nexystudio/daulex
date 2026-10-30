@@ -20,22 +20,55 @@
 </head>
 <body>
 <div id="site-header"></div>
-<main class="wrap page">
+<main class="wrap page wide">
   <a class="back" href="/#herramientas" data-i18n="back">Volver a las herramientas</a>
-  <h1 data-i18n="h1">JSON Formatter</h1>
-  <p class="sub" data-i18n="sub">Pega tu JSON para validarlo, darle formato legible o comprimirlo.</p>
-  <div class="ws">
-    <div class="two">
-      <div><label for="jIn" data-i18n="jin">Pega tu JSON</label><textarea id="jIn" spellcheck="false" placeholder="{&quot;nombre&quot;:&quot;Daulex&quot;}"></textarea></div>
-      <div><label for="jOut" data-i18n="jout">Resultado</label><textarea id="jOut" spellcheck="false" readonly></textarea></div>
+  <div class="jgrid">
+    <div class="jl">
+      <section class="pnl pin"><h2 data-i18n="jin2">Entrada JSON</h2><textarea id="jIn" spellcheck="false" aria-label="JSON"></textarea></section>
+      <section class="pnl pval"><h2 data-i18n="vtl">Validación</h2><div id="jVal" class="vcard" aria-live="polite"></div></section>
+      <section class="pnl pstat"><h2 data-i18n="stt">Estadísticas</h2>
+        <dl class="stl">
+          <div><dt data-i18n="ky">Claves</dt><dd id="st_keys">–</dd></div>
+          <div><dt data-i18n="vl">Valores</dt><dd id="st_values">–</dd></div>
+          <div><dt data-i18n="ar">Listas</dt><dd id="st_arrays">–</dd></div>
+          <div><dt data-i18n="ob">Objetos</dt><dd id="st_objects">–</dd></div>
+          <div><dt data-i18n="sz">Tamaño</dt><dd id="st_size">–</dd></div>
+        </dl>
+      </section>
     </div>
-    <div class="actions">
-      <button class="btn" type="button" id="jFmt" data-i18n="fmt">Formatear</button>
-      <button class="btn ghost" type="button" id="jMin" data-i18n="min">Comprimir</button>
-      <button class="btn ghost" type="button" id="jCopy" data-i18n="copy">Copiar resultado</button>
-      <button class="btn ghost" type="button" id="jClr" data-i18n="clear">Limpiar</button>
+    <section class="pnl mainp">
+      <div class="mhead"><h1><span class="ic">{ }</span><span data-i18n="h1">JSON Formatter</span></h1><span id="jPill" class="pill" hidden></span></div>
+      <div class="split">
+        <div class="pane2"><b data-i18n="ed">Editor</b><pre class="code" id="jOut"></pre></div>
+        <div class="pane2"><b data-i18n="tv">Vista de árbol</b><div class="tree" id="jTree"></div></div>
+      </div>
+      <div class="actions">
+        <button class="btn" type="button" id="bF" data-i18n="fmt">Formatear</button>
+        <button class="btn ghost" type="button" id="bM" data-i18n="min">Comprimir</button>
+        <button class="btn ghost" type="button" id="bV" data-i18n="val">Validar</button>
+        <span class="sp"></span>
+        <button class="ibtn" type="button" id="bC" aria-label="Copiar" data-i18n-al="copy"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg></button>
+        <button class="ibtn" type="button" id="bD" aria-label="Descargar" data-i18n-al="dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg></button>
+      </div>
+    </section>
+    <div class="jr">
+      <section class="pnl psm"><h2 data-i18n="spl">Ejemplos de datos</h2>
+        <div class="slist">
+          <button class="sbtn" type="button" data-s="0"><span class="ic">{ }</span><span data-i18n="sp1">Perfil de usuario</span></button>
+          <button class="sbtn" type="button" data-s="1"><span class="ic">{ }</span><span data-i18n="sp2">Datos de producto</span></button>
+          <button class="sbtn" type="button" data-s="2"><span class="ic">{ }</span><span data-i18n="sp3">Detalle de pedido</span></button>
+          <button class="sbtn" type="button" data-s="3"><span class="ic">{ }</span><span data-i18n="sp4">Configuración</span></button>
+        </div>
+      </section>
+      <section class="pnl pqa"><h2 data-i18n="qa">Acciones rápidas</h2>
+        <div class="qgrid">
+          <button class="qbtn" type="button" id="qP"><span class="ic">⎘</span><span data-i18n="pst">Pegar</span></button>
+          <button class="qbtn" type="button" id="qC"><span class="ic">⌫</span><span data-i18n="clear">Limpiar</span></button>
+          <button class="qbtn" type="button" id="qS"><span class="ic">A↓Z</span><span data-i18n="srt">Ordenar claves</span></button>
+          <button class="qbtn" type="button" id="qH"><span class="ic">↗</span><span data-i18n="shr">Compartir</span></button>
+        </div>
+      </section>
     </div>
-    <div class="status" id="jSt" aria-live="polite"></div>
   </div>
   <section class="info" style="padding-block:0"><h2 data-i18n="ah">¿Para qué sirve?</h2><p data-i18n="ap">Un JSON Formatter ayuda a leer y revisar configuraciones, respuestas de API y estructuras de datos. Esta herramienta valida la sintaxis, aplica sangría de dos espacios o elimina los espacios sobrantes, y todo ocurre en tu navegador.</p></section>
 </main>
